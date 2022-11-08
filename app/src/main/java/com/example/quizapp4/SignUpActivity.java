@@ -3,7 +3,6 @@ package com.example.quizapp4;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quizapp4.Model.DbQuery;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -87,10 +86,33 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(SignUpActivity.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-                        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        SignUpActivity.this.finish();
+                        DbQuery.createUserData(emailStr, nameStr, new MyCompleteListener() {
+
+                            @Override
+                            public void onSuccess() {
+                                DbQuery.loadData(new MyCompleteListener() {
+                                    @Override
+                                    public void onSuccess() {
+                                        progressDialog.dismiss();
+                                        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        SignUpActivity.this.finish();
+                                    }
+
+                                    @Override
+                                    public void onFailure() {
+                                        Toast.makeText(SignUpActivity.this, "Something went wrong! Try again", Toast.LENGTH_SHORT).show();
+                                        progressDialog.dismiss();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onFailure() {
+                                Toast.makeText(SignUpActivity.this, "Something went wrong! Try again", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        });
                     }
                 });
     }

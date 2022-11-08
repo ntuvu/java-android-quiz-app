@@ -1,10 +1,16 @@
-package com.example.quizapp4;
+package com.example.quizapp4.Fragment;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.quizapp4.TestActivity;
+import com.example.quizapp4.Model.CategoryModel;
+import com.example.quizapp4.Model.DbQuery;
+import com.example.quizapp4.R;
 
 import java.util.List;
 
@@ -32,7 +38,7 @@ public class CategoryAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         View myView;
 
         if (view == null) {
@@ -41,11 +47,17 @@ public class CategoryAdapter extends BaseAdapter {
             myView = view;
         }
 
+        myView.setOnClickListener(view1 -> {
+            DbQuery.g_selected_cat_index = i;
+            Intent intent = new Intent(view1.getContext(), TestActivity.class);
+            view1.getContext().startActivity(intent);
+        });
+
         TextView catName = myView.findViewById(R.id.catName);
         TextView noOfTests = myView.findViewById(R.id.no_of_tests);
 
         catName.setText(cat_list.get(i).getName());
-        noOfTests.setText(String.valueOf(cat_list.get(i).getNoOfTest()));
+        noOfTests.setText(String.valueOf(cat_list.get(i).getNoOfTests()));
 
         return myView;
     }

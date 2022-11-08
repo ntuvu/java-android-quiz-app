@@ -1,15 +1,15 @@
-package com.example.quizapp4;
+package com.example.quizapp4.Model;
 
 public class CategoryModel {
 
     private String docID;
     private String name;
-    private int noOfTest;
+    private int noOfTests;
 
-    public CategoryModel(String docID, String name, int noOfTest) {
+    public CategoryModel(String docID, String name, int noOfTests) {
         this.docID = docID;
         this.name = name;
-        this.noOfTest = noOfTest;
+        this.noOfTests = noOfTests;
     }
 
     public String getDocID() {
@@ -28,11 +28,11 @@ public class CategoryModel {
         this.name = name;
     }
 
-    public int getNoOfTest() {
-        return noOfTest;
+    public int getNoOfTests() {
+        return noOfTests;
     }
 
-    public void setNoOfTest(int noOfTest) {
-        this.noOfTest = noOfTest;
+    public void setNoOfTests(int noOfTests) {
+        this.noOfTests = noOfTests;
     }
 }

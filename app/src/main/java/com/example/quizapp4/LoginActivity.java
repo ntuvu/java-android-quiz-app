@@ -3,15 +3,16 @@ package com.example.quizapp4;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quizapp4.Model.DbQuery;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Dialog progressDialog;
     private TextView dialogText;
+    private RelativeLayout gSignB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        password = findViewById(R.id.password_login);
         loginButton = findViewById(R.id.login_button);
 //        forgotPassButton = findViewById(R.id.forgot_password);
         signUpButton = findViewById(R.id.signup);
@@ -70,14 +72,25 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login() {
         progressDialog.show();
-        mAuth.signInWithEmailAndPassword(email.toString().trim(), password.toString().trim())
+        mAuth.signInWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                        DbQuery.loadData(new MyCompleteListener() {
+                            @Override
+                            public void onSuccess() {
+                                progressDialog.dismiss();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailure() {
+                                Toast.makeText(LoginActivity.this, "Something went wrong! Try again", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        });
                     } else {
                         progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "Login fail", Toast.LENGTH_SHORT).show();

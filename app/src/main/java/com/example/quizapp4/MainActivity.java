@@ -3,6 +3,7 @@ package com.example.quizapp4;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,6 +14,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.quizapp4.Fragment.AccountFragment;
+import com.example.quizapp4.Fragment.CategoryFragment;
+import com.example.quizapp4.Fragment.LenderBoardFragment;
+import com.example.quizapp4.Model.DbQuery;
+import com.example.quizapp4.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -20,18 +26,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private BottomNavigationView bottomNavigationView;
     private FrameLayout main_frame;
+    private TextView drawerProfileName, drawerProfileText;
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
             item -> {
                 switch (item.getItemId()) {
                     case R.id.nav_home:
-                        setFragment(new CategoryFragment());
+                        bottomNavigationView.setSelectedItemId(R.id.nav_home);
                         return true;
                     case R.id.nav_lenderboard:
-                        setFragment(new LenderBoardFragment());
+                        bottomNavigationView.setSelectedItemId(R.id.nav_lenderboard);
                         return true;
                     case R.id.nav_account:
-                        setFragment(new AccountFragment());
+                        bottomNavigationView.setSelectedItemId(R.id.nav_account);
                         return true;
                 }
                 return false;
@@ -58,6 +65,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        drawerProfileName = navigationView.getHeaderView(0).findViewById(R.id.nav_drawer_name);
+        drawerProfileText = navigationView.getHeaderView(0).findViewById(R.id.nav_drawer_text_img);
+
+        String name = DbQuery.myProfile.getName();
+        drawerProfileName.setText(name);
+
+        drawerProfileText.setText(name.toUpperCase().substring(0, 1));
+
         setFragment(new CategoryFragment());
     }
 
@@ -73,6 +88,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            setFragment(new CategoryFragment());
+        } else if (id == R.id.nav_account) {
+            setFragment(new AccountFragment());
+        } else if (id == R.id.nav_lenderboard) {
+            setFragment(new LenderBoardFragment());
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 

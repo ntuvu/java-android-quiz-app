@@ -1,4 +1,4 @@
-package com.example.quizapp4;
+package com.example.quizapp4.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +7,12 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class AccountFragment extends Fragment {
+import com.example.quizapp4.R;
 
-    public AccountFragment() {
+
+public class LenderBoardFragment extends Fragment {
+
+    public LenderBoardFragment() {
         // Required empty public constructor
     }
 
@@ -17,6 +20,6 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        return inflater.inflate(R.layout.fragment_lender_board, container, false);
     }
 }

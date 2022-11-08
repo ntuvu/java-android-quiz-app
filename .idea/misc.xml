@@ -3,25 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/button_border.xml" value="0.2305" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/circle.xml" value="0.2305" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/gradient_background.xml" value="0.2295" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/ic_google_logo.xml" value="0.2305" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/main_background.xml" value="0.2455" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/round_corner_button.xml" value="0.2305" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/selected_btn.xml" value="0.176" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/drawable/unselected_btn.xml" value="0.2305" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout-v23/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_empty.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_questions.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_start_test.xml" value="0.264" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/activity_test.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/app_bar_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/cat_item_layout.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/content_main.xml" value="0.2" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/dialog_layout.xml" value="0.25" />
-        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_account.xml" value="0.1" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_account.xml" value="0.264" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_category.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_gallery.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_lender_board.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/fragment_slideshow.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/nav_header_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/question_item_layout.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/layout/test_item_layout.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/Users/ntu27/AndroidStudioProjects/QuizApp4/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
       </map>
