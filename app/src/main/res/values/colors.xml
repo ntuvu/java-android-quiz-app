@@ -14,5 +14,8 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="main_background">#E1EDFD</color>
     <color name="green">#2DF836</color>
+    <color name="grey">#D8D8D8</color>
+    <color name="pink">#F704E1</color>
+    <color name="red">#FF0000</color>
 
 </resources>

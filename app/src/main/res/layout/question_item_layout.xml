@@ -23,7 +23,7 @@
         android:translationZ="3dp"
         />
 
-    <Button
+    <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionA"
@@ -37,7 +37,7 @@
         android:stateListAnimator="@null"
         />
 
-    <Button
+    <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionB"
@@ -51,7 +51,7 @@
         android:stateListAnimator="@null"
         />
 
-    <Button
+    <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionC"
@@ -65,7 +65,7 @@
         android:stateListAnimator="@null"
         />
 
-    <Button
+    <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionD"

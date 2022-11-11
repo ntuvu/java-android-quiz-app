@@ -43,6 +43,19 @@ public class TestActivity extends AppCompatActivity {
         DbQuery.loadTestData(new MyCompleteListener() {
             @Override
             public void onSuccess() {
+                DbQuery.loadMyScore(new MyCompleteListener() {
+                    @Override
+                    public void onSuccess() {
+                        adapter = new TestAdapter(DbQuery.g_testlist);
+                        testView.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onFailure() {
+
+                    }
+                });
+
                 adapter = new TestAdapter(DbQuery.g_testlist);
                 testView.setAdapter(adapter);
             }

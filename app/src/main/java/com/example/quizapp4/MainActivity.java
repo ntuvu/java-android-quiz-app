@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
             item -> {
                 switch (item.getItemId()) {
-                    case R.id.nav_home:
-                        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+                    case R.id.navigation_home:
+                        setFragment(new CategoryFragment());
                         return true;
-                    case R.id.nav_lenderboard:
-                        bottomNavigationView.setSelectedItemId(R.id.nav_lenderboard);
+                    case R.id.navigation_lenderboard:
+                        setFragment(new LenderBoardFragment());
                         return true;
-                    case R.id.nav_account:
-                        bottomNavigationView.setSelectedItemId(R.id.nav_account);
+                    case R.id.navigation_account:
+                        setFragment(new AccountFragment());
                         return true;
                 }
                 return false;
