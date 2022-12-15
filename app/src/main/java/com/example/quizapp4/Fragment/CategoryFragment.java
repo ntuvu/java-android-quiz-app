@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import com.example.quizapp4.MainActivity;
 import com.example.quizapp4.Model.DbQuery;
 import com.example.quizapp4.R;
 
@@ -24,6 +26,10 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
+
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Categories");
+
         catView = view.findViewById(R.id.cat_Grid);
 
 //        loadCategories();

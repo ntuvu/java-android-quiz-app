@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.quizapp4.Model.DbQuery;
+import com.example.quizapp4.Model.QuestionModel;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +32,8 @@ public class ScoreActivity extends AppCompatActivity {
         loadData();
 
         viewAnsB.setOnClickListener(view -> {
-
+            Intent intent = new Intent(ScoreActivity.this, AnswerActivity.class);
+            startActivity(intent);
         });
 
         reAttemptB.setOnClickListener(view -> {
@@ -107,6 +109,23 @@ public class ScoreActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setBookMarks() {
+        for (int i = 0; i < DbQuery.g_quesList.size(); i++) {
+            QuestionModel question = DbQuery.g_quesList.get(i);
+            if (question.isBookmarked()) {
+                if (!DbQuery.g_bmIdList.contains(question.getqID())) {
+                    DbQuery.g_bmIdList.add(question.getqID());
+                    DbQuery.myProfile.setBookmarksCount(DbQuery.g_bmIdList.size());
+                }
+            } else {
+                if (DbQuery.g_bmIdList.contains(question.getqID())) {
+                    DbQuery.g_bmIdList.remove(question.getqID());
+                    DbQuery.myProfile.setBookmarksCount(DbQuery.g_bmIdList.size());
+                }
+            }
+        }
     }
 
     @Override

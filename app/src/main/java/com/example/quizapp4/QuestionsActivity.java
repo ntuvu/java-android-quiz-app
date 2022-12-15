@@ -44,11 +44,10 @@ public class QuestionsActivity extends AppCompatActivity {
     QuestionsAdapter quesAdapter;
     private DrawerLayout drawer;
     private GridView quesListGV;
-    private ImageView markImage;
+    private ImageView markImage, bookmarkB;
     private QuestionGridAdapter gridAdapter;
     CountDownTimer timer;
     private long timeLeft;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +55,7 @@ public class QuestionsActivity extends AppCompatActivity {
         setContentView(R.layout.questions_list_layout);
 
         init();
+        setBookMarks();
 
         quesAdapter = new QuestionsAdapter(g_quesList);
         questionsView.setAdapter(quesAdapter);
@@ -88,6 +88,7 @@ public class QuestionsActivity extends AppCompatActivity {
         drawerCloseB = findViewById(R.id.drawerCloseB);
         markImage = findViewById(R.id.mark_image);
         quesListGV = findViewById(R.id.ques_list_gv);
+        bookmarkB = findViewById(R.id.qa_bookmarkB);
 
         quesID = 0;
 
@@ -95,6 +96,13 @@ public class QuestionsActivity extends AppCompatActivity {
         catNameTV.setText(DbQuery.g_catlist.get(DbQuery.g_selected_cat_index).getName());
 
         g_quesList.get(0).setStatus(UNANSWERED);
+
+        if (g_quesList.get(0).isBookmarked()) {
+            bookmarkB.setColorFilter(R.color.red);
+        }
+        else {
+            bookmarkB.clearColorFilter();
+        }
     }
 
     private void setSnapHelper() {
@@ -119,6 +127,13 @@ public class QuestionsActivity extends AppCompatActivity {
                 }
 
                 tvQuesID.setText(quesID + 1 + "/" + g_quesList.size());
+
+                if (g_quesList.get(quesID).isBookmarked()) {
+                    bookmarkB.setColorFilter(R.color.red);
+                }
+                else {
+                    bookmarkB.clearColorFilter();
+                }
             }
 
             @Override
@@ -178,6 +193,10 @@ public class QuestionsActivity extends AppCompatActivity {
 
         submitB.setOnClickListener(view -> {
             submitTest();
+        });
+
+        bookmarkB.setOnClickListener(view -> {
+            addToBookmark();
         });
     }
 
@@ -241,5 +260,19 @@ public class QuestionsActivity extends AppCompatActivity {
         });
 
         alertDialog.show();
+    }
+
+    private void addToBookmark() {
+        if (g_quesList.get(quesID).isBookmarked()) {
+            g_quesList.get(quesID).setBookmarked(false);
+            bookmarkB.setImageResource(R.drawable.ic_bookmark);
+        } else {
+            g_quesList.get(quesID).setBookmarked(true);
+            bookmarkB.setColorFilter(R.color.red);
+        }
+    }
+
+    private void setBookMarks() {
+
     }
 }
